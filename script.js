@@ -28,8 +28,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 console.log("Fetching data")
                 navigator.geolocation.getCurrentPosition(function(position) {
                     const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-                    
+                    const longitude = position.coords.longitude; 
+
                     /**
                      * Now we have location of user.
                      * Let's fetch weather data and also show location in DOM.
@@ -67,6 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
                         document.querySelector("#feels ").textContent ="Feels_like : " +data.main.feels_like;
                     })        
                     .catch(e => {
+                        console.log("dsdsdc")
                         errorElement.textContent = e.message;
                     });
                 });
@@ -75,7 +76,8 @@ window.addEventListener("DOMContentLoaded", () => {
             useUserLocation();
 
         } else {
-            errorElement.textContent = "Geolocation is not supported by your browser.";
+            // errorElement.textContent = "Geolocation is not supported by your browser.";
+            alert("Geolocation is not supported by your browser.");
         }
     });
 });
